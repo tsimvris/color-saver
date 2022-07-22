@@ -12,6 +12,7 @@ export default function Form() {
     <>
       <div className="container">
         <h1>Edit Colors</h1>
+        {/* FORM */}
 
         <div className="FormContainer">
           <div className="CreateCard">
@@ -48,6 +49,9 @@ export default function Form() {
             </form>
           </div>
         </div>
+        {/* FORM END */}
+        {/* Render Created Cards */}
+
         <h3>Your Colors</h3>
         <div className="cardContainer">
           {ColorArray.map((color) => {
@@ -57,6 +61,8 @@ export default function Form() {
                 style={{ backgroundColor: color.colorCode }}
                 className="Card"
               >
+                {/* DELETE BUTTON */}
+
                 <button
                   onClick={() => {
                     setColorArray(
@@ -69,7 +75,10 @@ export default function Form() {
                 >
                   X
                 </button>
+
                 <div className="editCont">
+                  {/* Display Color Hex and Copy */}
+
                   <div
                     onClick={() => {
                       navigator.clipboard
@@ -84,12 +93,14 @@ export default function Form() {
                   >
                     {color.colorCode}
                   </div>
+                  {/* EDIT COLOR HEX */}
+
                   <div key={color.id} className="edit">
                     {color.edit ? (
                       <input
                         className="editColor"
                         type="text"
-                        defaultValue="#rrggbb"
+                        defaultValue={color.colorCode}
                         onChange={(event) => {
                           setColorArray(
                             ColorArray.map((newColor) => {
