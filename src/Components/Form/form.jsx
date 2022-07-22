@@ -7,13 +7,7 @@ export default function Form() {
   const Scrolli = useScrollTo();
 
   const [inputValue, setInputValue] = useState("");
-  const [ColorArray, setColorArray] = useState([
-    { id: nanoid(), colorCode: `#ccc` },
-    { id: nanoid(), colorCode: `#4c6ef5` },
-    { id: nanoid(), colorCode: `#82c91e` },
-    { id: nanoid(), colorCode: `#12b886` },
-    { id: nanoid(), colorCode: `#251605` },
-  ]);
+  const [ColorArray, setColorArray] = useState([]);
   return (
     <>
       <div className="container">
