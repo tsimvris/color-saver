@@ -5,12 +5,10 @@ import Nav from "../nav/nav";
 import "./form.css";
 export default function Form() {
   const [inputValue, setInputValue] = useState("");
-
   const [ColorArray, setColorArray] = useState([
     { id: nanoid(), edit: false, colorCode: `#ccc` },
     { id: nanoid(), edit: false, colorCode: `#4c6ef5` },
   ]);
-
   return (
     <>
       <div className="container">
