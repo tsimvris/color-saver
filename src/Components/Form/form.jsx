@@ -5,8 +5,7 @@ import { nanoid } from "nanoid";
 import "./form.css";
 export default function Form() {
   const Scrolli = useScrollTo();
-
-  const [inputValue, setInputValue] = useState("#FFFFFF");
+  const [inputValue, setInputValue] = useState();
   const [ColorArray, setColorArray] = useState([...Colors]);
   return (
     <>
