@@ -7,13 +7,12 @@ export default function Form() {
   const [inputValue, setInputValue] = useState("");
 
   const [ColorArray, setColorArray] = useState([
-    { id: nanoid(), colorCode: `#ccc` },
-    { id: nanoid(), colorCode: `#4c6ef5` },
+    { id: nanoid(), edit: false, colorCode: `#ccc` },
+    { id: nanoid(), edit: false, colorCode: `#4c6ef5` },
   ]);
 
   return (
     <>
-      {" "}
       <div className="container">
         <h1>Edit Colors</h1>
 
@@ -57,6 +56,7 @@ export default function Form() {
           {ColorArray.map((color) => {
             return (
               <div
+                key={color.id}
                 style={{ backgroundColor: color.colorCode }}
                 className="Card"
               >
@@ -72,8 +72,46 @@ export default function Form() {
                 >
                   X
                 </button>
+                <div className="editCont">
+                  <div className="hexCode">{color.colorCode}</div>
+                  <div className="edit">
+                    {color.edit ? (
+                      <input
+                        style={{ backgroundColor: color.colorCode }}
+                        className="editColor"
+                        type="text"
+                        value={color.colorCode}
+                        onChange={(event) => {
+                          setColorArray(
+                            ColorArray.map((color_) => {
+                              return color_.id === color.id
+                                ? { ...color_, name: event.target.value }
+                                : color;
+                            })
+                          );
+                        }}
+                      />
+                    ) : (
+                      ""
+                    )}
 
-                <button className="hexCode">{color.colorCode}</button>
+                    <button
+                      className="editBvutton"
+                      type="button"
+                      onClick={() => {
+                        setColorArray(
+                          ColorArray.map((color_) => {
+                            return color_.id === color.id
+                              ? { ...color_, edit: !color_.edit }
+                              : color_;
+                          })
+                        );
+                      }}
+                    >
+                      {color.edit ? "save" : "edit"}
+                    </button>
+                  </div>
+                </div>
               </div>
             );
           })}

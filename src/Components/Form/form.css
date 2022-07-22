@@ -43,3 +43,31 @@ h3 {
   border-radius: 15px;
   background-color: orange;
 }
+.hexCode {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-bottom: 5px;
+}
+.editColor {
+  width: 60%;
+  border-radius: 10px;
+}
+.edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.editCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.editBvutton {
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+}
