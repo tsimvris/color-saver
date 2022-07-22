@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: darkslategray;
-  height: 95vh;
+  background-color: rgb(5, 34, 34);
+  height: 100vh;
 }
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin: 50px;
+  justify-content: center;
+  align-items: center;
 }
 .Card {
   position: relative;
@@ -35,4 +37,9 @@ h1 {
   width: 50%;
   border-radius: 15px;
   background-color: orange;
+}
+.hpButton {
+  background-color: orange;
+  border-radius: 15px;
+  margin-top: 60px;
 }

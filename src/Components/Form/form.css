@@ -66,8 +66,9 @@ h3 {
   justify-content: center;
   align-items: center;
 }
-.editBvutton {
+.editButton {
   background-color: orange;
   color: white;
   border-radius: 10px;
+  margin-top: 5px;
 }

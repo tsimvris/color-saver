@@ -1,13 +1,18 @@
 import { useState } from "react";
+import { useScrollTo } from "react-use-window-scroll";
 
 import { nanoid } from "nanoid";
-import Nav from "../nav/nav";
 import "./form.css";
 export default function Form() {
+  const Scrolli = useScrollTo();
+
   const [inputValue, setInputValue] = useState("");
   const [ColorArray, setColorArray] = useState([
-    { id: nanoid(), edit: false, colorCode: `#ccc` },
-    { id: nanoid(), edit: false, colorCode: `#4c6ef5` },
+    { id: nanoid(), colorCode: `#ccc` },
+    { id: nanoid(), colorCode: `#4c6ef5` },
+    { id: nanoid(), colorCode: `#82c91e` },
+    { id: nanoid(), colorCode: `#12b886` },
+    { id: nanoid(), colorCode: `#251605` },
   ]);
   return (
     <>
@@ -94,7 +99,7 @@ export default function Form() {
                     )}
 
                     <button
-                      className="editBvutton"
+                      className="editButton"
                       type="button"
                       onClick={() => {
                         setColorArray(
@@ -114,8 +119,10 @@ export default function Form() {
             );
           })}
         </div>
+        <button onClick={() => Scrolli(-2000, 0)} className="hpButton">
+          Scroll Up
+        </button>
       </div>
-      <Nav />
     </>
   );
 }
