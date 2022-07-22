@@ -1,8 +1,7 @@
 import { nanoid } from "nanoid";
 import Nav from "../nav/nav";
-import "./colorcard.css";
-
-export default function ColorCard() {
+import "./form.css";
+export default function Form() {
   const ColorArray = [
     { id: nanoid(), colorCode: `#ccc` },
     { id: nanoid(), colorCode: `#4c6ef5` },
@@ -12,9 +11,17 @@ export default function ColorCard() {
 
   return (
     <>
+      {" "}
       <div className="container">
-        <h1>Saved Colors</h1>
+        <h1>Edit Colors</h1>
 
+        <div className="FormContainer">
+          <form className="Form">
+            <div className="Card">
+              <input type="color" />
+            </div>
+          </form>
+        </div>
         <div className="cardContainer">
           {ColorArray.map((color) => {
             return (
@@ -22,16 +29,7 @@ export default function ColorCard() {
                 style={{ backgroundColor: color.colorCode }}
                 className="Card"
               >
-                <button
-                  onClick={() => {
-                    navigator.clipboard.writeText(color.colorCode).then(() => {
-                      alert("The Hex Color Code is copied to your Clipboard");
-                    });
-                  }}
-                  className="hexCode"
-                >
-                  {color.colorCode}
-                </button>
+                <button className="hexCode">{color.colorCode}</button>
               </div>
             );
           })}
