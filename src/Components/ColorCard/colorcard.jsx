@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import Nav from "../nav/nav";
 import "./colorcard.css";
 
 export default function ColorCard() {
@@ -10,26 +11,32 @@ export default function ColorCard() {
   ];
 
   return (
-    <div className="container">
-      <h1>Saved Colors</h1>
+    <>
+      <div className="container">
+        <h1>Saved Colors</h1>
 
-      <div className="cardContainer">
-        {ColorArray.map((color) => {
-          return (
-            <div style={{ backgroundColor: color.colorCode }} className="Card">
-              <button
-                onClick={() => {
-                  alert("The Hex Color Code is copied on your Clipboard");
-                  navigator.clipboard.writeText(color.colorCode);
-                }}
-                className="hexCode"
+        <div className="cardContainer">
+          {ColorArray.map((color) => {
+            return (
+              <div
+                style={{ backgroundColor: color.colorCode }}
+                className="Card"
               >
-                {color.colorCode}
-              </button>
-            </div>
-          );
-        })}
+                <button
+                  onClick={() => {
+                    alert("The Hex Color Code is copied on your Clipboard");
+                    navigator.clipboard.writeText(color.colorCode);
+                  }}
+                  className="hexCode"
+                >
+                  {color.colorCode}
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
-    </div>
+      <Nav />
+    </>
   );
 }
