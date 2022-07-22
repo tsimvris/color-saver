@@ -1,5 +1,6 @@
 import ColorCard from "./Components/ColorCard/colorcard";
 import Nav from "./Components/nav/nav";
+
 import "./App.css";
 
 function App() {
