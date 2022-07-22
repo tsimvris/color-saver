@@ -1,13 +1,13 @@
+import { useState } from "react";
+
 import { nanoid } from "nanoid";
 import Nav from "../nav/nav";
 import "./form.css";
 export default function Form() {
-  const ColorArray = [
+  const [ColorArray, setColorArray] = useState([
     { id: nanoid(), colorCode: `#ccc` },
     { id: nanoid(), colorCode: `#4c6ef5` },
-    { id: nanoid(), colorCode: `#82c91e` },
-    { id: nanoid(), colorCode: `#12b886` },
-  ];
+  ]);
 
   return (
     <>
@@ -16,11 +16,13 @@ export default function Form() {
         <h1>Edit Colors</h1>
 
         <div className="FormContainer">
-          <form className="Form">
-            <div className="Card">
+          <div className="Card">
+            <form className="Form">
               <input type="color" />
-            </div>
-          </form>
+              <input type="text" />
+              <button>Add Color</button>
+            </form>
+          </div>
         </div>
         <div className="cardContainer">
           {ColorArray.map((color) => {
@@ -29,6 +31,19 @@ export default function Form() {
                 style={{ backgroundColor: color.colorCode }}
                 className="Card"
               >
+                <button
+                  onClick={() => {
+                    setColorArray(
+                      ColorArray.filter((color_) => {
+                        return color_.id !== color.id;
+                      })
+                    );
+                  }}
+                  className="DeleteButton"
+                >
+                  X
+                </button>
+
                 <button className="hexCode">{color.colorCode}</button>
               </div>
             );
