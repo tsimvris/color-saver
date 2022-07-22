@@ -15,6 +15,7 @@ export default function ColorCard() {
           {ColorArray.map((color) => {
             return (
               <div
+                key={color.id}
                 style={{ backgroundColor: color.colorCode }}
                 className="Card"
               >

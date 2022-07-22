@@ -6,7 +6,7 @@ import "./form.css";
 export default function Form() {
   const Scrolli = useScrollTo();
 
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("#FFFFFF");
   const [ColorArray, setColorArray] = useState([...Colors]);
   return (
     <>
@@ -19,11 +19,10 @@ export default function Form() {
               onSubmit={(event) => {
                 event.preventDefault();
                 setColorArray([
-                  { colorCode: inputValue, id: nanoid() },
-                  ...Colors,
+                  ...ColorArray,
+                  { colorCode: inputValue, edit: false, id: nanoid() },
                 ]);
                 setInputValue("");
-                Colors.push({ colorCode: inputValue, id: nanoid() });
               }}
               className="Form"
             >
@@ -85,19 +84,18 @@ export default function Form() {
                   >
                     {color.colorCode}
                   </div>
-                  <div className="edit">
+                  <div key={color.id} className="edit">
                     {color.edit ? (
                       <input
-                        style={{ backgroundColor: color.colorCode }}
                         className="editColor"
                         type="text"
-                        value={color.colorCode}
+                        defaultValue="#rrggbb"
                         onChange={(event) => {
                           setColorArray(
-                            ColorArray.map((color_) => {
-                              return color_.id === color.id
-                                ? { ...color_, name: event.target.value }
-                                : color;
+                            ColorArray.map((newColor) => {
+                              return newColor.id === color.id
+                                ? { ...newColor, name: event.target.value }
+                                : newColor;
                             })
                           );
                         }}
@@ -111,10 +109,10 @@ export default function Form() {
                       type="button"
                       onClick={() => {
                         setColorArray(
-                          ColorArray.map((color_) => {
-                            return color_.id === color.id
-                              ? { ...color_, edit: !color_.edit }
-                              : color_;
+                          ColorArray.map((newColor) => {
+                            return newColor.id === color.id
+                              ? { ...newColor, edit: !newColor.edit }
+                              : newColor;
                           })
                         );
                       }}

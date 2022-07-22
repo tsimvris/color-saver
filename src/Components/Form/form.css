@@ -55,6 +55,7 @@ h3 {
 .editColor {
   width: 60%;
   border-radius: 10px;
+  background-color: white;
 }
 .edit {
   display: flex;
