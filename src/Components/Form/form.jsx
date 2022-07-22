@@ -4,6 +4,8 @@ import { nanoid } from "nanoid";
 import Nav from "../nav/nav";
 import "./form.css";
 export default function Form() {
+  const [inputValue, setInputValue] = useState("");
+
   const [ColorArray, setColorArray] = useState([
     { id: nanoid(), colorCode: `#ccc` },
     { id: nanoid(), colorCode: `#4c6ef5` },
@@ -17,9 +19,35 @@ export default function Form() {
 
         <div className="FormContainer">
           <div className="CreateCard">
-            <form className="Form">
-              <input className="inputColor" type="color" />
-              <input className="inputText" type="text" />
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                setColorArray([
+                  ...ColorArray,
+                  { colorCode: inputValue, id: nanoid() },
+                ]);
+                setInputValue("");
+              }}
+              className="Form"
+            >
+              <input
+                required
+                value={inputValue}
+                onChange={(event) => {
+                  setInputValue(event.target.value);
+                }}
+                className="inputColor"
+                type="color"
+              />
+              <input
+                required
+                value={inputValue}
+                onChange={(event) => {
+                  setInputValue(event.target.value);
+                }}
+                className="inputText"
+                type="text"
+              />
               <button className="addColorButton">Add Color</button>
             </form>
           </div>
