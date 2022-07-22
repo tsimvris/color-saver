@@ -99,12 +99,12 @@ export default function Form() {
                       <input
                         className="editColor"
                         type="text"
-                        defaultValue={color.colorCode}
+                        value={color.colorCode}
                         onChange={(event) => {
                           setColorArray(
                             ColorArray.map((newColor) => {
                               return newColor.id === color.id
-                                ? { ...newColor, name: event.target.value }
+                                ? { ...newColor, colorCode: event.target.value }
                                 : newColor;
                             })
                           );

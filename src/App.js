@@ -3,6 +3,8 @@ import Form from "./Components/Form/form";
 import "./App.css";
 
 function App() {
+  /* hier das useState*/
+
   return (
     <div className="App">
       <ColorCard />
