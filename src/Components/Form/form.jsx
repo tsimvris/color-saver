@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useScrollTo } from "react-use-window-scroll";
-
+import { Colors } from "../colorDatabase";
 import { nanoid } from "nanoid";
 import "./form.css";
 export default function Form() {
   const Scrolli = useScrollTo();
 
   const [inputValue, setInputValue] = useState("");
-  const [ColorArray, setColorArray] = useState([]);
+  const [ColorArray, setColorArray] = useState([...Colors]);
   return (
     <>
       <div className="container">
@@ -19,10 +19,11 @@ export default function Form() {
               onSubmit={(event) => {
                 event.preventDefault();
                 setColorArray([
-                  ...ColorArray,
                   { colorCode: inputValue, id: nanoid() },
+                  ...Colors,
                 ]);
                 setInputValue("");
+                Colors.push({ colorCode: inputValue, id: nanoid() });
               }}
               className="Form"
             >
@@ -70,7 +71,20 @@ export default function Form() {
                   X
                 </button>
                 <div className="editCont">
-                  <div className="hexCode">{color.colorCode}</div>
+                  <div
+                    onClick={() => {
+                      navigator.clipboard
+                        .writeText(color.colorCode)
+                        .then(() => {
+                          alert(
+                            "The Hex Color Code is copied to your Clipboard"
+                          );
+                        });
+                    }}
+                    className="hexCode"
+                  >
+                    {color.colorCode}
+                  </div>
                   <div className="edit">
                     {color.edit ? (
                       <input

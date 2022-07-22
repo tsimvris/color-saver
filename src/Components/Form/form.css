@@ -1,3 +1,6 @@
+.FormContainer {
+  height: 100vh;
+}
 .Form {
   display: flex;
   flex-direction: column;
