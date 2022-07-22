@@ -16,14 +16,15 @@ export default function Form() {
         <h1>Edit Colors</h1>
 
         <div className="FormContainer">
-          <div className="Card">
+          <div className="CreateCard">
             <form className="Form">
-              <input type="color" />
-              <input type="text" />
-              <button>Add Color</button>
+              <input className="inputColor" type="color" />
+              <input className="inputText" type="text" />
+              <button className="addColorButton">Add Color</button>
             </form>
           </div>
         </div>
+        <h3>Your Colors</h3>
         <div className="cardContainer">
           {ColorArray.map((color) => {
             return (
