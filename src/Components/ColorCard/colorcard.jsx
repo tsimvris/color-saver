@@ -26,7 +26,7 @@ export default function ColorCard() {
                     });
                   }}
                   className="hexCode"
-                >
+                  disabled={true}>
                   {color.colorCode}
                 </button>
               </div>

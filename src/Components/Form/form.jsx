@@ -16,7 +16,7 @@ export default function Form() {
         <div className="FormContainer">
           <div className="CreateCard">
             <form
-              onSubmit={(event) => {
+                onSubmit={(event) => {
                 event.preventDefault();
                 setColorArray([
                   ...ColorArray,
@@ -24,8 +24,8 @@ export default function Form() {
                 ]);
                 setInputValue("");
               }}
-              className="Form"
-            >
+                className="Form"
+                autoComplete={true} name={ColorForm}>
               <input
                 required
                 value={inputValue}
