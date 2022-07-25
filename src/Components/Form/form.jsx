@@ -4,7 +4,7 @@ import { Colors } from "../colorDatabase";
 import { nanoid } from "nanoid";
 import "./form.css";
 export default function Form() {
-  const Scrolli = useScrollTo();
+  const Scroll = useScrollTo();
   const [inputValue, setInputValue] = useState();
   const [ColorArray, setColorArray] = useState([...Colors]);
   return (
@@ -25,7 +25,8 @@ export default function Form() {
                 setInputValue("");
               }}
                 className="Form"
-                autoComplete={true} name={ColorForm}>
+                autoComplete=true
+                name="ColorForm">
               <input
                 required
                 value={inputValue}
@@ -135,7 +136,7 @@ export default function Form() {
             );
           })}
         </div>
-        <button onClick={() => Scrolli(-2000, 0)} className="hpButton">
+        <button onClick={() => Scroll(-2000, 0)} className="hpButton">
           Scroll Up
         </button>
       </div>
